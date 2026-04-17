@@ -23,10 +23,29 @@ class Course(BaseModel):
     
     # One-to-many relationship with Lesson
     lessons = relationship(
-        "Lesson", 
+        "Lesson",
         back_populates="course",
         cascade="all, delete-orphan"
     )
-    
+
+    # One-to-many relationship with CourseRating
+    ratings = relationship(
+        "CourseRating",
+        back_populates="course",
+        cascade="all, delete-orphan",
+        lazy='select'
+    )
+
+    @property
+    def average_rating(self) -> float:
+        active = [r.rating for r in self.ratings if r.deleted_at is None]
+        if not active:
+            return 0.0
+        return round(sum(active) / len(active), 2)
+
+    @property
+    def total_ratings(self) -> int:
+        return len([r for r in self.ratings if r.deleted_at is None])
+
     def __repr__(self):
         return f"<Course(id={self.id}, name='{self.name}', slug='{self.slug}')>" 
