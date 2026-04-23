@@ -9,7 +9,7 @@ async function getCourses(): Promise<Course[]> {
     throw new Error("Failed to fetch courses");
   }
   const data = await res.json();
-  return data.data;
+  return data;
 }
 
 export default async function Home() {

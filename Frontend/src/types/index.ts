@@ -47,3 +47,24 @@ export interface Quiz {
 export interface FavoriteToggle {
   course_id: number;
 }
+
+// Rating types
+export interface RatingStats {
+  average_rating: number;
+  total_ratings: number;
+  rating_distribution: Record<string, number>;
+}
+
+export interface RatingResponse {
+  id: number;
+  course_id: number;
+  user_id: number;
+  rating: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface RatingRequest {
+  user_id: number;
+  rating: number;
+}

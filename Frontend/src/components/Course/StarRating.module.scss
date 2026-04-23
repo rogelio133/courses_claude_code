@@ -1,0 +1,44 @@
+@import '../../styles/vars.scss';
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.stars {
+  display: flex;
+  gap: 1px;
+}
+
+.star {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.filled {
+  color: #f5a623;
+}
+
+.half {
+  background: linear-gradient(90deg, #f5a623 50%, #ccc 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.empty {
+  color: #ccc;
+}
+
+.ratingText {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: color('text-primary');
+}
+
+.totalRatings {
+  font-weight: 400;
+  color: color('text-secondary');
+  opacity: 0.6;
+}
