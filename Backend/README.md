@@ -6,6 +6,7 @@ Platziflix es una plataforma online de cursos simple y directa. Cada curso conti
 
 Esto es un ejemplo para un pr
 this is other line added
+aca va una linea que no sirve para nada
 
 ## Stack Tecnológico
 
