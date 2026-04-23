@@ -10,6 +10,7 @@ describe("Course Component", () => {
     teacher: "John Doe",
     duration: 120,
     thumbnail: "https://example.com/thumbnail.jpg",
+    ratingStats: { average_rating: 4.5, total_ratings: 120, rating_distribution: { "1": 2, "2": 5, "3": 15, "4": 48, "5": 50 } },
   };
 
   it("renders course information correctly", () => {

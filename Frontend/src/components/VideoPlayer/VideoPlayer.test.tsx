@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { VideoPlayer, VideoPlayerProps } from "./VideoPlayer";
 
-// Si usas Vitest, descomenta la siguiente línea:
-// import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 describe("VideoPlayer", () => {
   const mockProps: VideoPlayerProps = {
