@@ -6,6 +6,7 @@ Platziflix es una plataforma online de cursos simple y directa. Cada curso conti
 
 Esto es un ejemplo para un pr
 this is other line added
+una linea mas sin sentido que claude code deberia de marcar para eliminar, si no lo hace deberia decirme por que no funciona la integracion en github actions
 
 ## Stack Tecnológico
 
