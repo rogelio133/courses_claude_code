@@ -7,6 +7,7 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from app.db.base import SessionLocal
 from app.models import Teacher, Course, Lesson, course_teachers
+from app.models.course_rating import CourseRating
 from app.core.config import settings
 
 
@@ -144,10 +145,40 @@ def create_sample_data():
 
         db.commit()
 
+        # Create sample ratings
+        ratings_data = [
+            # React course
+            {"course_id": course1.id, "user_id": 1, "rating": 5},
+            {"course_id": course1.id, "user_id": 2, "rating": 4},
+            {"course_id": course1.id, "user_id": 3, "rating": 5},
+            {"course_id": course1.id, "user_id": 4, "rating": 3},
+            # Python course
+            {"course_id": course2.id, "user_id": 1, "rating": 5},
+            {"course_id": course2.id, "user_id": 2, "rating": 4},
+            {"course_id": course2.id, "user_id": 3, "rating": 4},
+            # JavaScript course
+            {"course_id": course3.id, "user_id": 1, "rating": 4},
+            {"course_id": course3.id, "user_id": 2, "rating": 5},
+            {"course_id": course3.id, "user_id": 3, "rating": 4},
+            {"course_id": course3.id, "user_id": 4, "rating": 5},
+        ]
+
+        for r in ratings_data:
+            db.add(CourseRating(
+                course_id=r["course_id"],
+                user_id=r["user_id"],
+                rating=r["rating"],
+                created_at=datetime.utcnow(),
+                updated_at=datetime.utcnow(),
+            ))
+
+        db.commit()
+
         print("✅ Sample data created successfully!")
         print(f"   - Created {len([teacher1, teacher2, teacher3])} teachers")
         print(f"   - Created {len([course1, course2, course3])} courses")
         print(f"   - Created {len(lessons_data)} lessons")
+        print(f"   - Created {len(ratings_data)} ratings")
 
     except Exception as e:
         db.rollback()
@@ -163,6 +194,7 @@ def clear_all_data():
 
     try:
         # Delete in reverse order to avoid foreign key constraints
+        db.query(CourseRating).delete()
         db.query(Lesson).delete()
         db.execute(course_teachers.delete())
         db.query(Course).delete()
