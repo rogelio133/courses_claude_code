@@ -1833,25 +1833,25 @@ try {
 ## Checklist de Implementación
 
 ### FASE 1: Types & Interfaces
-- [ ] Crear interfaces `CourseRating`, `RatingRequest`, `RatingStats`
-- [ ] Actualizar interface `Course` con campos opcionales
-- [ ] Crear tipos de estado: `RatingState`, `RatingError`
-- [ ] Implementar type guards: `isValidRating`, `isCourseRating`
-- [ ] Verificar TypeScript strict compliance (no `any`)
+- [x] Crear interfaces `CourseRating`, `RatingRequest`, `RatingStats`
+- [x] Actualizar interface `Course` con campos opcionales
+- [x] Crear tipos de estado: `RatingState`, `RatingError`
+- [x] Implementar type guards: `isValidRating`, `isCourseRating`
+- [x] Verificar TypeScript strict compliance (no `any`)
 
 ### FASE 2: API Service Layer
-- [ ] Crear archivo `ratingsApi.ts` en `src/services/`
-- [ ] Configurar environment variable `NEXT_PUBLIC_API_URL`
-- [ ] Implementar `fetchWithTimeout` helper
-- [ ] Implementar `handleApiResponse` helper
-- [ ] Crear clase `ApiError` customizada
-- [ ] Implementar `getCourseRatings`
-- [ ] Implementar `addCourseRating`
-- [ ] Implementar `updateCourseRating`
-- [ ] Implementar `deleteCourseRating`
-- [ ] Implementar `getCourseWithRatings`
-- [ ] Crear tests unitarios del service
-- [ ] Validar manejo de errores HTTP
+- [x] Crear archivo `ratingsApi.ts` en `src/services/`
+- [x] Configurar environment variable `NEXT_PUBLIC_API_URL`
+- [x] Implementar `fetchWithTimeout` helper
+- [x] Implementar `handleApiResponse` helper
+- [x] Crear clase `ApiError` customizada
+- [x] Implementar `getCourseRatings`
+- [x] Implementar `addCourseRating`
+- [x] Implementar `updateCourseRating`
+- [x] Implementar `deleteCourseRating`
+- [x] Implementar `getCourseWithRatings`
+- [x] Crear tests unitarios del service
+- [x] Validar manejo de errores HTTP
 
 ### FASE 3: StarRating Component
 - [ ] Crear estructura de carpeta `StarRating/`
