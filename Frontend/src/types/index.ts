@@ -6,6 +6,8 @@ export interface Course {
   duration: number;
   thumbnail: string;
   slug: string;
+  average_rating?: number;
+  total_ratings?: number;
 }
 
 // Class types
@@ -49,13 +51,7 @@ export interface FavoriteToggle {
 }
 
 // Rating types
-export interface RatingStats {
-  average_rating: number;
-  total_ratings: number;
-  rating_distribution: Record<string, number>;
-}
-
-export interface RatingResponse {
+export interface CourseRating {
   id: number;
   course_id: number;
   user_id: number;
@@ -67,4 +63,35 @@ export interface RatingResponse {
 export interface RatingRequest {
   user_id: number;
   rating: number;
+}
+
+export interface RatingStats {
+  average_rating: number;
+  total_ratings: number;
+  rating_distribution: Record<string, number>;
+}
+
+export type RatingState = 'idle' | 'loading' | 'success' | 'error';
+
+export interface RatingError {
+  message: string;
+  code?: string;
+  details?: Record<string, unknown>;
+}
+
+export function isValidRating(rating: number): rating is number {
+  return Number.isInteger(rating) && rating >= 1 && rating <= 5;
+}
+
+export function isCourseRating(obj: unknown): obj is CourseRating {
+  if (typeof obj !== 'object' || obj === null) return false;
+  const r = obj as Record<string, unknown>;
+  return (
+    typeof r.id === 'number' &&
+    typeof r.course_id === 'number' &&
+    typeof r.user_id === 'number' &&
+    typeof r.rating === 'number' &&
+    typeof r.created_at === 'string' &&
+    typeof r.updated_at === 'string'
+  );
 }
