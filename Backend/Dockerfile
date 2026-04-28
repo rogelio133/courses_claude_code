@@ -22,4 +22,4 @@ COPY ./specs ./specs
 EXPOSE 8000
 
 # Command to run uvicorn with hot reload
-CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"] 
+CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"] 
