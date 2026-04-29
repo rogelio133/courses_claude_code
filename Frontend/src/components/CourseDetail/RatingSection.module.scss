@@ -1,0 +1,53 @@
+@import '../../styles/vars.scss';
+
+.ratingSection {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid color('light-gray');
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.userRating {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid color('light-gray');
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.statsTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: color('text-primary');
+  margin: 0 0 0.5rem;
+}
+
+.statsDescription {
+  font-size: 0.95rem;
+  color: color('text-secondary');
+  margin: 0 0 0.75rem;
+}
+
+.loadingText {
+  font-size: 0.9rem;
+  color: color('text-secondary');
+  margin: 0;
+}
+
+.successText {
+  font-size: 0.9rem;
+  color: #2e7d32;
+  font-weight: 600;
+  margin: 0;
+}
+
+.errorText {
+  font-size: 0.9rem;
+  color: #c62828;
+  font-weight: 600;
+  margin: 0;
+}

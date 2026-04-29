@@ -1854,34 +1854,34 @@ try {
 - [x] Validar manejo de errores HTTP
 
 ### FASE 3: StarRating Component
-- [ ] Crear estructura de carpeta `StarRating/`
-- [ ] Implementar `StarRating.tsx` con props interface
-- [ ] Crear estados internos (hover, submitting)
-- [ ] Implementar event handlers (click, hover, keyboard)
-- [ ] Crear `StarIcon` sub-component con SVG
-- [ ] Implementar lógica de half-stars
-- [ ] Crear `StarRating.module.scss` con size variants
-- [ ] Implementar ARIA labels y roles
-- [ ] Añadir keyboard navigation (Arrow keys, Enter, Escape)
+- [x] Crear estructura de carpeta `StarRating/`
+- [x] Implementar `StarRating.tsx` con props interface
+- [x] Crear estados internos (hover, submitting)
+- [x] Implementar event handlers (click, hover, keyboard)
+- [x] Crear `StarIcon` sub-component con SVG
+- [x] Implementar lógica de half-stars
+- [x] Crear `StarRating.module.scss` con size variants
+- [x] Implementar ARIA labels y roles
+- [x] Añadir keyboard navigation (Arrow keys, Enter, Escape)
 - [ ] Crear tests de renderizado
 - [ ] Crear tests de interactividad
 - [ ] Crear tests de accesibilidad
-- [ ] Validar focus styles visibles
+- [x] Validar focus styles visibles
 
 ### FASE 4: Integration en Components
-- [ ] Actualizar props de `Course` component
-- [ ] Añadir `StarRating` readonly en Course card
-- [ ] Actualizar `Course.module.scss` para rating section
-- [ ] Crear `RatingSection.tsx` como Client Component
-- [ ] Implementar estados de `RatingSection`
-- [ ] Crear `useEffect` para cargar user rating
-- [ ] Implementar `handleRatingChange` con optimistic updates
-- [ ] Crear helper `calculateOptimisticAverage`
-- [ ] Implementar rollback strategy en errores
-- [ ] Crear `RatingSection.module.scss`
-- [ ] Integrar `RatingSection` en `CourseDetail`
-- [ ] Actualizar `page.tsx` para incluir rating data
-- [ ] Validar fallbacks si backend no envía rating fields
+- [x] Actualizar props de `Course` component
+- [x] Añadir `StarRating` readonly en Course card
+- [x] Actualizar `Course.module.scss` para rating section
+- [x] Crear `RatingSection.tsx` como Client Component
+- [x] Implementar estados de `RatingSection`
+- [x] Crear `useEffect` para cargar user rating
+- [x] Implementar `handleRatingChange` con optimistic updates
+- [x] Crear helper `calculateOptimisticAverage`
+- [x] Implementar rollback strategy en errores
+- [x] Crear `RatingSection.module.scss`
+- [x] Integrar `RatingSection` en `CourseDetail`
+- [x] Actualizar `page.tsx` para incluir rating data
+- [x] Validar fallbacks si backend no envía rating fields
 
 ### FASE 5: State Management & UX
 - [ ] Implementar feedback visual (loading, error, success)
