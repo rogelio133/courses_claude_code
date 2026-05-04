@@ -1,5 +1,5 @@
 import styles from "./page.module.scss";
-import { Course, RatingStats } from "@/types";
+import { Course } from "@/types";
 import { Course as CourseComponent } from "@/components/Course/Course";
 import Link from "next/link";
 
@@ -9,21 +9,8 @@ async function getCourses(): Promise<Course[]> {
   return res.json();
 }
 
-async function getCourseRatingStats(courseId: number): Promise<RatingStats | null> {
-  try {
-    const res = await fetch(`http://localhost:8000/courses/${courseId}/ratings/stats`, {
-      cache: "no-store",
-    });
-    if (!res.ok) return null;
-    return res.json();
-  } catch {
-    return null;
-  }
-}
-
 export default async function Home() {
   const courses = await getCourses();
-  const ratingsStats = await Promise.all(courses.map((c) => getCourseRatingStats(c.id)));
 
   return (
     <div className={styles.page}>
@@ -36,7 +23,7 @@ export default async function Home() {
       <div className={styles.verticalRight}>FLIX</div>
       <main className={styles.main}>
         <div className={styles.coursesGrid}>
-          {courses.map((course, index) => (
+          {courses.map((course) => (
             <Link href={`/course/${course.slug}`} key={course.id}>
               <CourseComponent
                 id={course.id}
@@ -44,7 +31,8 @@ export default async function Home() {
                 teacher={course.teacher}
                 duration={course.duration}
                 thumbnail={course.thumbnail}
-                ratingStats={ratingsStats[index]}
+                averageRating={course.average_rating}
+                totalRatings={course.total_ratings}
               />
             </Link>
           ))}

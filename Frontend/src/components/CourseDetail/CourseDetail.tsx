@@ -2,6 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 import { CourseDetail } from "@/types";
 import styles from "./CourseDetail.module.scss";
+import { RatingSection } from "./RatingSection";
 
 interface CourseDetailComponentProps {
   course: CourseDetail;
@@ -37,6 +38,13 @@ export const CourseDetailComponent: FC<CourseDetailComponentProps> = ({ course }
           </div>
         </div>
       </div>
+
+      <RatingSection
+        courseId={course.id}
+        initialAverageRating={course.average_rating}
+        initialTotalRatings={course.total_ratings}
+        userId={1} // TODO: Reemplazar con userId real de auth
+      />
 
       <div className={styles.classesSection}>
         <h2 className={styles.sectionTitle}>Contenido del curso</h2>

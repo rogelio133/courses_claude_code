@@ -10,19 +10,15 @@ describe("Course Component", () => {
     teacher: "John Doe",
     duration: 120,
     thumbnail: "https://example.com/thumbnail.jpg",
-    ratingStats: { average_rating: 4.5, total_ratings: 120, rating_distribution: { "1": 2, "2": 5, "3": 15, "4": 48, "5": 50 } },
+    averageRating: 4.5,
+    totalRatings: 120,
   };
 
   it("renders course information correctly", () => {
     render(<Course {...mockCourse} />);
 
-    // Check if title is rendered
     expect(screen.getByText(mockCourse.title)).toBeDefined();
-
-    // Check if teacher information is rendered
     expect(screen.getByText(`Profesor: ${mockCourse.teacher}`)).toBeDefined();
-
-    // Check if duration is rendered
     expect(screen.getByText(`Duración: ${mockCourse.duration} minutos`)).toBeDefined();
   });
 
@@ -37,14 +33,21 @@ describe("Course Component", () => {
   it("renders with correct structure", () => {
     const { container } = render(<Course {...mockCourse} />);
 
-    // Check if the main article exists
     expect(container.querySelector("article")).toBeDefined();
-
-    // Check if the thumbnail container exists
     expect(container.querySelector("div > img")).toBeDefined();
-
-    // Check if the course info section exists
     expect(container.querySelector("div > h2")).toBeDefined();
     expect(container.querySelector("div > p")).toBeDefined();
+  });
+
+  it("renders rating when averageRating is provided", () => {
+    render(<Course {...mockCourse} />);
+    const group = screen.getByRole("group");
+    expect(group).toBeDefined();
+  });
+
+  it("does not render rating when averageRating is not provided", () => {
+    const { averageRating: _, totalRatings: __, ...courseWithoutRating } = mockCourse;
+    render(<Course {...courseWithoutRating} />);
+    expect(screen.queryByRole("group")).toBeNull();
   });
 });

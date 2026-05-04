@@ -5,6 +5,11 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  css: {
+    modules: {
+      generateScopedName: '[local]',
+    },
+  },
   test: {
     environment: 'jsdom',
     globals: true,

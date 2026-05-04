@@ -1,12 +1,13 @@
 import styles from "./Course.module.scss";
-import { Course as CourseType, RatingStats } from "@/types";
-import { StarRating } from "./StarRating";
+import { Course as CourseType } from "@/types";
+import { StarRating } from "@/components/StarRating/StarRating";
 
 type CourseProps = Omit<CourseType, "slug"> & {
-  ratingStats: RatingStats | null;
+  averageRating?: number;
+  totalRatings?: number;
 };
 
-export const Course = ({ id, title, teacher, duration, thumbnail, ratingStats }: CourseProps) => {
+export const Course = ({ title, teacher, duration, thumbnail, averageRating, totalRatings }: CourseProps) => {
   return (
     <article className={styles.courseCard}>
       <div className={styles.thumbnailContainer}>
@@ -15,11 +16,16 @@ export const Course = ({ id, title, teacher, duration, thumbnail, ratingStats }:
       <div className={styles.courseInfo}>
         <h2 className={styles.courseTitle}>{title}</h2>
         <p className={styles.teacher}>Profesor: {teacher}</p>
-        {ratingStats && (
-          <StarRating
-            rating={ratingStats.average_rating}
-            totalRatings={ratingStats.total_ratings}
-          />
+        {typeof averageRating === 'number' && (
+          <div className={styles.ratingContainer}>
+            <StarRating
+              rating={averageRating}
+              readonly
+              size="small"
+              showCount
+              totalRatings={totalRatings}
+            />
+          </div>
         )}
         <p className={styles.duration}>Duración: {duration} minutos</p>
       </div>
